@@ -1,0 +1,34 @@
+{% extends 'main.html' %}
+{% block content %}
+
+<!--navbar-->
+<hr>
+
+
+
+<div class="container mt-4">
+        <a class="btn btn-primary btn-sm btn-block" href="{% url 'ajout_produit' %}">créer un produit</a>
+        <h2>Liste des Produits</h2>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nom</th>
+                    <th>Téléphone</th>
+                    <th>Date de création</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for produit in produits %}
+                    <tr>
+                        <td>{{ produit.id }}</td>
+                        <td>{{ produit.nom }}</td>
+                        <td>{{ produit.prix }}</td>
+                        <td>{{ produit.date_creation }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+{% endblock %}
